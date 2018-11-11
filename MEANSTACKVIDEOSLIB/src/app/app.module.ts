@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,7 +27,8 @@ import { ReserveVideoComponent } from './body/videolisting-users/reserve-video/r
     ReserveVideoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
