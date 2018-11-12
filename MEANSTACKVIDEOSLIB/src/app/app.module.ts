@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
@@ -16,6 +17,7 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
 {path:'reserve/:index', component:ReserveVideoComponent},
+{path:'login', component:AdminloginComponent},
 ];
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ const appRoutes:Routes=[
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
