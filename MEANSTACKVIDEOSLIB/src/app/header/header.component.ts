@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   logOut()
   {
     this.cookieservice.delete("login");
+    this.router.navigate(['']);
      window.location.reload();//this is a way to reload but not a angular way to do
   }
 
