@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminlogin',
@@ -11,9 +13,9 @@ export class AdminloginComponent implements OnInit {
   username="farhad";
   password="1234";
 
-  validate=false;
+  showMsg=false;
 
-  constructor() { }
+  constructor(private cookieservice:CookieService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -22,10 +24,14 @@ export class AdminloginComponent implements OnInit {
   {
     if(this.username!=form.value.username || this.password!=form.value.password)
     {
-      this.validate=true;
+      this.showMsg=true;
     }
     else{
-      this.validate=false;
+      this.showMsg=false;
+      this.cookieservice.set("login", "Administrator");
+      this.router.navigate(['/videolist']);
+      window.location.reload();
+      
     }
 
 
