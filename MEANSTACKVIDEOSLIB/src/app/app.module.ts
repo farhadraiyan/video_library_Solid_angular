@@ -15,12 +15,14 @@ import { ReserveVideoComponent } from './body/videolisting-users/reserve-video/r
 import { Routes, RouterModule } from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import { CustomerlistComponent } from './body/videolisting-admin/customerlist/customerlist.component';
+import { HttpClientModule } from '@angular/common/http';
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
 {path:'reserve/:index', component:ReserveVideoComponent},
 {path:'login', component:AdminloginComponent},
 {path:'videolist', component:VideolistingAdminComponent},
-{path:'customers', component:CustomerlistComponent}
+{path:'customers', component:CustomerlistComponent},
+{path:'addvideo', component:AddVideoComponent}
 ];
 @NgModule({
   declarations: [
@@ -34,12 +36,14 @@ const appRoutes:Routes=[
     AddVideoComponent,
     VideolistingUsersComponent,
     ReserveVideoComponent,
-    CustomerlistComponent
+    CustomerlistComponent,
+    
   ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [CookieService],
