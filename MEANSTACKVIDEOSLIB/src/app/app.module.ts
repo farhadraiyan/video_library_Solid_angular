@@ -11,8 +11,12 @@ import { UpdateVideoComponent } from './body/videolisting-admin/update-video/upd
 import { AddVideoComponent } from './body/videolisting-admin/add-video/add-video.component';
 import { VideolistingUsersComponent } from './body/videolisting-users/videolisting-users.component';
 import { ReserveVideoComponent } from './body/videolisting-users/reserve-video/reserve-video.component';
+import { Routes, RouterModule } from '@angular/router';
 
-
+const appRoutes:Routes=[
+{path:'', component:BodyComponent},
+{path:'reserve/:index', component:ReserveVideoComponent},
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,8 @@ import { ReserveVideoComponent } from './body/videolisting-users/reserve-video/r
   ],
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

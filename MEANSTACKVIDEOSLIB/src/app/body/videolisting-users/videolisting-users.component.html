@@ -30,24 +30,15 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let vid of videos; let i=index">
           <tr>
-            <td>Lord of the rings</td>
-            <td>106 minutes</td>
-            <td>Fantasy</td>
-            <td>4 stars</td>
-            <td>Peter Jackson</td>
-            <td>Available</td>
-            <td><button class="btn btn-primary">Reserve</button></td>
-          </tr>
-          <tr>
-            <td>The Godfather</td>
-            <td>175 minutes</td>
-            <td>Crime Thriller</td>
-            <td>5 stars</td>
-            <td>Francise Ford Copollo</td>
-            <td>Avialable</td>
-            <td></td>
+            <td>{{ vid.title}}</td>
+            <td>{{ vid.runtime}}</td>
+            <td>{{ vid.genre}}</td>
+            <td>{{ vid.rating}}</td>
+            <td>{{ vid.director}}</td>
+            <td>{{ vid.status}}</td>
+            <td><button [routerLink]="['/reserve/'+i]" class="btn btn-primary" [ngClass]="{ hidden: vid.status=='unavailable'}">Reserve</button></td>
           </tr>
   
         </tbody>
