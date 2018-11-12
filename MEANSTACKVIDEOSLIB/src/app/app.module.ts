@@ -14,11 +14,13 @@ import { VideolistingUsersComponent } from './body/videolisting-users/videolisti
 import { ReserveVideoComponent } from './body/videolisting-users/reserve-video/reserve-video.component';
 import { Routes, RouterModule } from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
+import { CustomerlistComponent } from './body/videolisting-admin/customerlist/customerlist.component';
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
 {path:'reserve/:index', component:ReserveVideoComponent},
 {path:'login', component:AdminloginComponent},
 {path:'videolist', component:VideolistingAdminComponent},
+{path:'customers', component:CustomerlistComponent}
 ];
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ const appRoutes:Routes=[
     UpdateVideoComponent,
     AddVideoComponent,
     VideolistingUsersComponent,
-    ReserveVideoComponent
+    ReserveVideoComponent,
+    CustomerlistComponent
   ],
   imports: [
     BrowserModule,
