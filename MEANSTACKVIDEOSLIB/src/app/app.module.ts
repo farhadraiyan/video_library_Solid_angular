@@ -22,7 +22,8 @@ const appRoutes:Routes=[
 {path:'login', component:AdminloginComponent},
 {path:'videolist', component:VideolistingAdminComponent},
 {path:'customers', component:CustomerlistComponent},
-{path:'addvideo', component:AddVideoComponent}
+{path:'addvideo', component:AddVideoComponent},
+{path:'updatevideo/:index', component:UpdateVideoComponent}
 ];
 @NgModule({
   declarations: [

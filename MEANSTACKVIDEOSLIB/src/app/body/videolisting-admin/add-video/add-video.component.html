@@ -3,9 +3,23 @@
   <div class="col-md-2"></div>
   <div class="col-md-8" id="addVidSection">
     <h2 class="text-center my-2">Add Video</h2>
+    <div class="row">
+        <div class="col-md-12 text-center text-danger">
+
+            <span *ngIf="!title.valid && title.touched"> Title is required </span>
+            <span *ngIf="!runtime.valid && runtime.touched">and Run time is required </span>
+            <span *ngIf="!dir.valid && dir.touched">and Director is required</span>
+          </div>
+    </div>
+
     <div class="row p-5">
       <div class="col-md-2 text-center">
-        <input type="file" (change)="onFileSelect($event)">
+        <img [src]="defImgUrl" class="mb-3" style="height:100px; width:100px;">
+        <label class="btn btn-primary" for="my-file-selector">
+            <input id="my-file-selector" type="file" (change)="onFileSelect($event)" style="display:none;">
+            Browse
+        </label>
+       
         <!-- <button type="button" (click)="onUpload()"></button> -->
       </div>
 
@@ -15,14 +29,19 @@
                   <label for="title" class="col-sm-4 col-form-label">Title</label>
                   <div class="col-sm-8">
                     <input name="title" type="text" class="form-control" id="title"
-                    ngModel>
+                    ngModel
+                    required
+                    #title="ngModel">
                   </div>
+
                 </div>
                 <div class="form-group row">
                     <label for="title" class="col-sm-4 col-form-label">Running Time</label>
                     <div class="col-sm-8">
                       <input name="runtime" type="text" class="form-control" id="title"
-                      ngModel >
+                      ngModel
+                      required 
+                      #runtime="ngModel">
                     </div>
                   </div>
                   <div class="form-group row">
@@ -53,7 +72,9 @@
                           <label for="director" class="col-sm-4 col-form-label">Director</label>
                           <div class="col-sm-8">
                               <input name="director" type="text" class="form-control" id="director"
-                              ngModel >
+                              ngModel 
+                              required
+                              #dir="ngModel">
 
                           </div>
                         </div>
@@ -82,8 +103,6 @@
           <button [routerLink]="['/videolist']" class="btn btn-primary px-5">Video List</button>
 
       </div>
-
-
   </div>
   <div class="col-md-2"></div>
 </div>

@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit, OnChanges {
       this.logVal=false;
       this.logoutVal=true;
     }
-    console.log(this.cookieservice.get("login"));
   }
   ngOnChanges()
   {
@@ -34,7 +33,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   {
     this.cookieservice.delete("login");
     this.router.navigate(['']);
-     window.location.reload();//this is a way to reload but not a angular way to do
+    window.location.reload();//this is a way to reload but not a angular way to do
   }
 
 

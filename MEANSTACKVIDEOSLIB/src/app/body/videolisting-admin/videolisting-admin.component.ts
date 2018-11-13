@@ -10,12 +10,13 @@ import { Router } from '@angular/router';
 })
 export class VideolistingAdminComponent implements OnInit {
   videos: Videos[];
+  imgPath="../../../../assets/";
 
   constructor(private videoService:VideolistServiceService, private router:Router) { }
 
   ngOnInit() {
     this.videoService.currentVideo.subscribe(vidArr=>this.videos=vidArr);
-
+    
 
   }
   navigateCusts()
@@ -25,7 +26,11 @@ this.router.navigate(['/customers']);
   navigateVids()
   {
     this.router.navigate(['/videolist']);
-    console.log("dfadfadsfadsfads")
+  }
+  deleteVideo(index)
+  {
+    this.videos.splice(index,1);
+
   }
 
 }
