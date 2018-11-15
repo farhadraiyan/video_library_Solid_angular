@@ -15,6 +15,6 @@ export class VideolistServiceService {
 
   changeVideo(videosArray)
   {
-    this.videoSrc.next(videosArray)
+    this.videoSrc.next(videosArray);
   }
 }

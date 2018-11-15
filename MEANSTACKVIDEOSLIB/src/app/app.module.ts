@@ -16,6 +16,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import { CustomerlistComponent } from './body/videolisting-admin/customerlist/customerlist.component';
 import { HttpClientModule } from '@angular/common/http';
+import {HttpModule} from '@angular/http';
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
 {path:'reserve/:index', component:ReserveVideoComponent},
@@ -41,6 +42,7 @@ const appRoutes:Routes=[
     
   ],
   imports: [
+    HttpModule, 
     BrowserModule,
     AngularFontAwesomeModule,
     FormsModule,
