@@ -17,6 +17,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { CustomerlistComponent } from './body/videolisting-admin/customerlist/customerlist.component';
 import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
+import { VideolistServiceService } from './videolist-service.service';
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
 {path:'reserve/:index', component:ReserveVideoComponent},

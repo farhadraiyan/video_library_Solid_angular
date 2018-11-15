@@ -3,10 +3,12 @@ import { VideolistServiceService } from 'src/app/videolist-service.service';
 import { Videos } from '../videolisting-users/videos.model';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-videolisting-admin',
   templateUrl: './videolisting-admin.component.html',
-  styleUrls: ['./videolisting-admin.component.css']
+  styleUrls: ['./videolisting-admin.component.css'],
+  providers:[VideolistServiceService]
 })
 export class VideolistingAdminComponent implements OnInit {
   videos: Videos[];
@@ -15,7 +17,6 @@ export class VideolistingAdminComponent implements OnInit {
   constructor(private videoService:VideolistServiceService, private router:Router) { }
 
   ngOnInit() {
-    this.videoService.currentVideo.subscribe(vidArr=>this.videos=vidArr);
     
 
   }

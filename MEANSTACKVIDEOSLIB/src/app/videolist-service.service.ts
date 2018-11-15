@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject} from 'rxjs';
 import { Videos } from './body/videolisting-users/videos.model';
+import 'rxjs/add/operator/map';
+import {Http, Headers} from '@angular/http';
 @Injectable({
   providedIn: 'root'
 })
 export class VideolistServiceService {
 
-  constructor() { }
-  private videoSrc=new BehaviorSubject<Videos[]>([
-    new Videos("Toy story","120 minutes", "animation", "4 stars","spielburg","available","toystory.jpeg"),
-  new Videos("The godfather","175 minutes", "crime thriller", "4 stars","francise ford copollo","unavailable","3d1.png"),
-  ]);
-  currentVideo=this.videoSrc.asObservable();
+  constructor(private http:Http) { }
 
-  changeVideo(videosArray)
+  getVideolist()
   {
-    this.videoSrc.next(videosArray);
+    //inorder to get the latest version of 'npm i rxjs-compat' otherwise map give error
+    return this.http.get("http://localhost:3000/videolist")
+    .map(res=>res.json());
+    
   }
+  addVideo(newvideo)
+  {
+    var headers=new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post("http://localhost:3000/addvideo", newvideo,{headers:headers})
+    .map(res=>res.json());
+  }
+
 }
+

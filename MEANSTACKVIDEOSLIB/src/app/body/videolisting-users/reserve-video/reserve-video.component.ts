@@ -11,11 +11,9 @@ export class ReserveVideoComponent implements OnInit {
   videos:Videos[];
   indexparm=this.route.snapshot.params['index'];
   imgpath='../../../../assets/';
-  constructor( private videoService: VideolistServiceService, private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.videoService.currentVideo.subscribe(vidArr=>this.videos=vidArr);
-   this.imgpath+=this.videos[this.indexparm].imgPath;
 
   }
 
@@ -33,8 +31,6 @@ export class ReserveVideoComponent implements OnInit {
       }
     )
 
-    //this how change any component value through observable
-    this.videoService.changeVideo(this.videos);
   }
 
 }
